@@ -4,6 +4,7 @@
 #include "hook_manager.h"
 #include <iostream>
 #include "core.h"
+#include "hwid.h"
 
 void* old_messagebox = nullptr;
 void* old_messagebox_handler = nullptr;
@@ -30,14 +31,8 @@ void UnhookAPIs(HookManager& hook_manager)
 
 int main()
 {
-    auto id = Core::Instance()->hardware_id();
-
-
-
-    HookManager mgr;
-    HookAPIs(mgr);
-    MessageBox(NULL, L"Hello, World!", L"Hooked MessageBox<0>", MB_OK);
-    UnhookAPIs(mgr);
-    MessageBox(NULL, L"Hello, World!", L"Hooked MessageBox<1>", MB_OK);
-
+    char buffer[1024];
+    HardwareID hardware_id;
+    hardware_id.GetCurrent(buffer, 1024);
+    MessageBoxA(NULL, buffer, "Tip", MB_OK);
 }
