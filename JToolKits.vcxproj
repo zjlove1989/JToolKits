@@ -124,15 +124,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core.cc" />
+    <ClCompile Include="crypto.cc" />
     <ClCompile Include="hook_manager.cc" />
+    <ClCompile Include="hwid.cc" />
     <ClCompile Include="JToolKits.cpp" />
-    <ClCompile Include="loader.cpp" />
+    <ClCompile Include="loader.cc" />
+    <ClCompile Include="objects.cc" />
+    <ClCompile Include="precompiled.cc" />
+    <ClCompile Include="sdk.cc" />
+    <ClCompile Include="string_manager.cc" />
+    <ClCompile Include="third-party\lzma\LzmaDecode.cc" />
+    <ClCompile Include="utils.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h" />
     <ClInclude Include="core.h" />
+    <ClInclude Include="crypto.h" />
     <ClInclude Include="hook_manager.h" />
+    <ClInclude Include="hwid.h" />
     <ClInclude Include="loader.h" />
+    <ClInclude Include="objects.h" />
+    <ClInclude Include="precommon.h" />
+    <ClInclude Include="precompiled.h" />
+    <ClInclude Include="sdk.h" />
+    <ClInclude Include="string_manager.h" />
+    <ClInclude Include="third-party\lzma\LzmaDecode.h" />
+    <ClInclude Include="utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
