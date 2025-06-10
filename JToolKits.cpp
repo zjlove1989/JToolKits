@@ -3,6 +3,7 @@
 
 #include "hook_manager.h"
 #include <iostream>
+#include "core.h"
 
 void* old_messagebox = nullptr;
 void* old_messagebox_handler = nullptr;
@@ -29,11 +30,16 @@ void UnhookAPIs(HookManager& hook_manager)
 
 int main()
 {
-    HMODULE hUser32 = LoadLibraryA("user32.dll");
+    auto isOk = core::IsVirtualMachinePresent();
+
 
     HookManager mgr;
     HookAPIs(mgr);
     MessageBox(NULL, L"Hello, World!", L"Hooked MessageBox<0>", MB_OK);
     UnhookAPIs(mgr);
     MessageBox(NULL, L"Hello, World!", L"Hooked MessageBox<1>", MB_OK);
+
+
+
+
 }
