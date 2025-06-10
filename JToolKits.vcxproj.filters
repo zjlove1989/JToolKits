@@ -24,12 +24,21 @@
     <ClCompile Include="core.cc">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="loader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hook_manager.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="core.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="loader.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
