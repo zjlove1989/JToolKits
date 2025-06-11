@@ -3,6 +3,7 @@
 
 #include "VMP_SDK/hook_manager.h"
 #include "VMP_SDK/hwid.h"
+#include "VMP_SDK/third-party/lzma/LzmaDecode.h"
 #include "VMP_SDK/third-party/lzma/LzmaEncode.h"
 #include <iostream>
 
@@ -62,11 +63,81 @@ static void SzFree(void* p, void* address)
 }
 static ISzAlloc g_Alloc = { SzAlloc, SzFree };
 
-void TestLzma()
+void TestDecodeLzma(Byte* compressedData, SizeT compressedSize, Byte* propsEncoded)
+{
+    // 假设这是之前压缩的数据和属性
+
+    // 预估解压后的数据大小（如果知道原始大小，可以直接用）
+    SizeT uncompressedSize = compressedSize * 10 + 1; // 预估
+    Byte* uncompressedData = (Byte*)malloc(uncompressedSize);
+    if (!uncompressedData) {
+        printf("Memory allocation failed for uncompressed buffer.\n");
+        return;
+    }
+
+    memset(uncompressedData, 0, uncompressedSize); // 初始化缓冲区
+
+    // 初始化 LZMA 解码器状态
+    CLzmaDecoderState state;
+    memset(&state, 0, sizeof(state));
+
+    // 解析压缩属性（propsEncoded）
+    CLzmaProperties props;
+    int res = LzmaDecodeProperties(&props, propsEncoded, LZMA_PROPERTIES_SIZE);
+    if (res != LZMA_RESULT_OK) {
+        printf("Failed to decode LZMA properties: %d\n", res);
+        free(uncompressedData);
+        return;
+    }
+    state.Properties = props;
+
+    // 分配概率模型所需的内存
+    SizeT numProbs = LzmaGetNumProbs(&props);
+    state.Probs = (CProb*)g_Alloc.Alloc(NULL, numProbs * sizeof(CProb));
+    if (!state.Probs) {
+        printf("Memory allocation failed for probability model.\n");
+        free(uncompressedData);
+        return;
+    }
+
+// 初始化解码器
+#ifdef _LZMA_OUT_READ
+    LzmaDecoderInit(&state);
+#endif
+
+    // 解压数据
+    SizeT inProcessed = 0, outProcessed = 0;
+    res = LzmaDecode(
+        &state,
+#ifdef _LZMA_IN_CB
+        NULL, // 不使用回调
+#else
+        compressedData, compressedSize, &inProcessed,
+#endif
+        uncompressedData, uncompressedSize, &outProcessed);
+
+    if (res == LZMA_RESULT_OK) {
+        printf("Decompression successful!\n");
+        printf("Decompressed data: %s\n", uncompressedData);
+
+        printf("Compressed size: %zu, Decompressed size: %zu\n", inProcessed, outProcessed);
+
+        // 现在 uncompressedData 包含解压后的数据
+        // 可以保存到文件或进一步处理
+    } else {
+        printf("Decompression failed with error: %d\n", res);
+    }
+
+    // 释放资源
+    g_Alloc.Free(NULL, state.Probs);
+    free(uncompressedData);
+}
+
+void TestEncodeLzma()
 {
     // 示例输入数据
-    const Byte src[] = "This is a test string to be compressed using LZMA.This is a test string to be compressed using LZMA.This is a test string to be compressed using LZMA.This is a test string to be compressed using LZMA.This is a test string to be compressed using LZMA.This is a test string to be compressed using LZMA.This is a test string to be compressed using LZMA.This is a test string to be compressed using LZMA.This is a test string to be compressed using LZMA.This is a test string to be compressed using LZMA.This is a test string to be compressed using LZMA.";
-    SizeT srcLen = sizeof(src) - 1; // 不包括末尾的 '\0'
+    const Byte src[] = "This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.";
+    SizeT srcLen = sizeof(src) + 1; // 不包括末尾的 '\0'
 
     // 预估输出缓冲区大小（通常比输入稍大）
     SizeT destLen = srcLen * 2;
@@ -103,7 +174,7 @@ void TestLzma()
 
         // 这里可以将 dest 和 propsEncoded 保存到文件或传输
         // 解压时需要 propsEncoded 和 dest 数据
-
+        TestDecodeLzma(dest, destLen, propsEncoded);
     } else {
         printf("Compression failed with error: %d\n", res);
     }
@@ -115,5 +186,5 @@ int main()
 {
     TestHwid();
     TestHookMessageBox();
-    TestLzma();
+    TestEncodeLzma();
 }
