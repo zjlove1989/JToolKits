@@ -1,10 +1,10 @@
 ﻿// JToolKits.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-#include "hook_manager.h"
-#include <iostream>
 #include "core.h"
+#include "hook_manager.h"
 #include "hwid.h"
+#include <iostream>
 
 void* old_messagebox = nullptr;
 void* old_messagebox_handler = nullptr;
@@ -31,8 +31,8 @@ void UnhookAPIs(HookManager& hook_manager)
 
 int main()
 {
-    char buffer[1024];
+    char buffer[256];
     HardwareID hardware_id;
-    hardware_id.GetCurrent(buffer, 1024);
+    hardware_id.GetCurrent(buffer, 256);
     MessageBoxA(NULL, buffer, "Tip", MB_OK);
 }
