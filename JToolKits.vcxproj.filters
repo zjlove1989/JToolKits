@@ -13,108 +13,111 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="VMP_SDK">
+      <UniqueIdentifier>{1f5bcd45-861d-488c-ba5e-cd03ad2c322a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JToolKits.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="hook_manager.cc">
-      <Filter>源文件</Filter>
+    <ClCompile Include="VMP_SDK\core.cc">
+      <Filter>VMP_SDK</Filter>
     </ClCompile>
-    <ClCompile Include="sdk.cc">
-      <Filter>源文件</Filter>
+    <ClCompile Include="VMP_SDK\crypto.cc">
+      <Filter>VMP_SDK</Filter>
     </ClCompile>
-    <ClCompile Include="core.cc">
-      <Filter>源文件</Filter>
+    <ClCompile Include="VMP_SDK\file_manager.cc">
+      <Filter>VMP_SDK</Filter>
     </ClCompile>
-    <ClCompile Include="crypto.cc">
-      <Filter>源文件</Filter>
+    <ClCompile Include="VMP_SDK\hook_manager.cc">
+      <Filter>VMP_SDK</Filter>
     </ClCompile>
-    <ClCompile Include="hwid.cc">
-      <Filter>源文件</Filter>
+    <ClCompile Include="VMP_SDK\hwid.cc">
+      <Filter>VMP_SDK</Filter>
     </ClCompile>
-    <ClCompile Include="loader.cc">
-      <Filter>源文件</Filter>
+    <ClCompile Include="VMP_SDK\licensing_manager.cc">
+      <Filter>VMP_SDK</Filter>
     </ClCompile>
-    <ClCompile Include="objects.cc">
-      <Filter>源文件</Filter>
+    <ClCompile Include="VMP_SDK\loader.cc">
+      <Filter>VMP_SDK</Filter>
     </ClCompile>
-    <ClCompile Include="precompiled.cc">
-      <Filter>源文件</Filter>
+    <ClCompile Include="VMP_SDK\objects.cc">
+      <Filter>VMP_SDK</Filter>
     </ClCompile>
-    <ClCompile Include="string_manager.cc">
-      <Filter>源文件</Filter>
+    <ClCompile Include="VMP_SDK\precompiled.cc">
+      <Filter>VMP_SDK</Filter>
     </ClCompile>
-    <ClCompile Include="utils.cc">
-      <Filter>源文件</Filter>
+    <ClCompile Include="VMP_SDK\registry_manager.cc">
+      <Filter>VMP_SDK</Filter>
     </ClCompile>
-    <ClCompile Include="third-party\lzma\LzmaDecode.cc">
-      <Filter>源文件</Filter>
+    <ClCompile Include="VMP_SDK\resource_manager.cc">
+      <Filter>VMP_SDK</Filter>
     </ClCompile>
-    <ClCompile Include="file_manager.cc">
-      <Filter>源文件</Filter>
+    <ClCompile Include="VMP_SDK\sdk.cc">
+      <Filter>VMP_SDK</Filter>
     </ClCompile>
-    <ClCompile Include="registry_manager.cc">
-      <Filter>源文件</Filter>
+    <ClCompile Include="VMP_SDK\string_manager.cc">
+      <Filter>VMP_SDK</Filter>
     </ClCompile>
-    <ClCompile Include="resource_manager.cc">
-      <Filter>源文件</Filter>
+    <ClCompile Include="VMP_SDK\utils.cc">
+      <Filter>VMP_SDK</Filter>
     </ClCompile>
-    <ClCompile Include="licensing_manager.cc">
-      <Filter>源文件</Filter>
+    <ClCompile Include="VMP_SDK\third-party\lzma\LzmaDecode.cc">
+      <Filter>VMP_SDK</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="hook_manager.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\common.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="sdk.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\core.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="common.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\crypto.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="core.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\file_manager.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="crypto.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\hook_manager.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="hwid.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\hwid.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="loader.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\licensing_manager.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="objects.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\loader.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="precommon.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\objects.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="precompiled.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\precommon.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="string_manager.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\precompiled.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="utils.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\registry_manager.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="third-party\lzma\LzmaDecode.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\resource_manager.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="file_manager.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\sdk.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="registry_manager.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\string_manager.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="resource_manager.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\utils.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
-    <ClInclude Include="licensing_manager.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="VMP_SDK\third-party\lzma\LzmaDecode.h">
+      <Filter>VMP_SDK</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

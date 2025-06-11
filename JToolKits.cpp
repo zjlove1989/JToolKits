@@ -1,9 +1,8 @@
 ﻿// JToolKits.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-#include "core.h"
-#include "hook_manager.h"
-#include "hwid.h"
+#include "VMP_SDK/hook_manager.h"
+#include "VMP_SDK/hwid.h"
 #include <iostream>
 
 void* old_messagebox = nullptr;

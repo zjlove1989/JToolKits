@@ -123,41 +123,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="core.cc" />
-    <ClCompile Include="crypto.cc" />
-    <ClCompile Include="file_manager.cc" />
-    <ClCompile Include="hook_manager.cc" />
-    <ClCompile Include="hwid.cc" />
     <ClCompile Include="JToolKits.cpp" />
-    <ClCompile Include="licensing_manager.cc" />
-    <ClCompile Include="loader.cc" />
-    <ClCompile Include="objects.cc" />
-    <ClCompile Include="precompiled.cc" />
-    <ClCompile Include="registry_manager.cc" />
-    <ClCompile Include="resource_manager.cc" />
-    <ClCompile Include="sdk.cc" />
-    <ClCompile Include="string_manager.cc" />
-    <ClCompile Include="third-party\lzma\LzmaDecode.cc" />
-    <ClCompile Include="utils.cc" />
+    <ClCompile Include="VMP_SDK\core.cc" />
+    <ClCompile Include="VMP_SDK\crypto.cc" />
+    <ClCompile Include="VMP_SDK\file_manager.cc" />
+    <ClCompile Include="VMP_SDK\hook_manager.cc" />
+    <ClCompile Include="VMP_SDK\hwid.cc" />
+    <ClCompile Include="VMP_SDK\licensing_manager.cc" />
+    <ClCompile Include="VMP_SDK\loader.cc" />
+    <ClCompile Include="VMP_SDK\objects.cc" />
+    <ClCompile Include="VMP_SDK\precompiled.cc" />
+    <ClCompile Include="VMP_SDK\registry_manager.cc" />
+    <ClCompile Include="VMP_SDK\resource_manager.cc" />
+    <ClCompile Include="VMP_SDK\sdk.cc" />
+    <ClCompile Include="VMP_SDK\string_manager.cc" />
+    <ClCompile Include="VMP_SDK\third-party\lzma\LzmaDecode.cc" />
+    <ClCompile Include="VMP_SDK\utils.cc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="common.h" />
-    <ClInclude Include="core.h" />
-    <ClInclude Include="crypto.h" />
-    <ClInclude Include="file_manager.h" />
-    <ClInclude Include="hook_manager.h" />
-    <ClInclude Include="hwid.h" />
-    <ClInclude Include="licensing_manager.h" />
-    <ClInclude Include="loader.h" />
-    <ClInclude Include="objects.h" />
-    <ClInclude Include="precommon.h" />
-    <ClInclude Include="precompiled.h" />
-    <ClInclude Include="registry_manager.h" />
-    <ClInclude Include="resource_manager.h" />
-    <ClInclude Include="sdk.h" />
-    <ClInclude Include="string_manager.h" />
-    <ClInclude Include="third-party\lzma\LzmaDecode.h" />
-    <ClInclude Include="utils.h" />
+    <ClInclude Include="VMP_SDK\common.h" />
+    <ClInclude Include="VMP_SDK\core.h" />
+    <ClInclude Include="VMP_SDK\crypto.h" />
+    <ClInclude Include="VMP_SDK\file_manager.h" />
+    <ClInclude Include="VMP_SDK\hook_manager.h" />
+    <ClInclude Include="VMP_SDK\hwid.h" />
+    <ClInclude Include="VMP_SDK\licensing_manager.h" />
+    <ClInclude Include="VMP_SDK\loader.h" />
+    <ClInclude Include="VMP_SDK\objects.h" />
+    <ClInclude Include="VMP_SDK\precommon.h" />
+    <ClInclude Include="VMP_SDK\precompiled.h" />
+    <ClInclude Include="VMP_SDK\registry_manager.h" />
+    <ClInclude Include="VMP_SDK\resource_manager.h" />
+    <ClInclude Include="VMP_SDK\sdk.h" />
+    <ClInclude Include="VMP_SDK\string_manager.h" />
+    <ClInclude Include="VMP_SDK\third-party\lzma\LzmaDecode.h" />
+    <ClInclude Include="VMP_SDK\utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
