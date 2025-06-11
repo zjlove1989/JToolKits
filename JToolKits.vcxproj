@@ -137,7 +137,12 @@
     <ClCompile Include="VMP_SDK\resource_manager.cc" />
     <ClCompile Include="VMP_SDK\sdk.cc" />
     <ClCompile Include="VMP_SDK\string_manager.cc" />
+    <ClCompile Include="VMP_SDK\third-party\lzma\Alloc.c" />
+    <ClCompile Include="VMP_SDK\third-party\lzma\LzFind.c" />
+    <ClCompile Include="VMP_SDK\third-party\lzma\LzFindMt.c" />
     <ClCompile Include="VMP_SDK\third-party\lzma\LzmaDecode.cc" />
+    <ClCompile Include="VMP_SDK\third-party\lzma\LzmaEncode.cc" />
+    <ClCompile Include="VMP_SDK\third-party\lzma\Threads.c" />
     <ClCompile Include="VMP_SDK\utils.cc" />
   </ItemGroup>
   <ItemGroup>
@@ -156,7 +161,16 @@
     <ClInclude Include="VMP_SDK\resource_manager.h" />
     <ClInclude Include="VMP_SDK\sdk.h" />
     <ClInclude Include="VMP_SDK\string_manager.h" />
+    <ClInclude Include="VMP_SDK\third-party\lzma\7zTypes.h" />
+    <ClInclude Include="VMP_SDK\third-party\lzma\Alloc.h" />
+    <ClInclude Include="VMP_SDK\third-party\lzma\Compiler.h" />
+    <ClInclude Include="VMP_SDK\third-party\lzma\LzFind.h" />
+    <ClInclude Include="VMP_SDK\third-party\lzma\LzFindMt.h" />
+    <ClInclude Include="VMP_SDK\third-party\lzma\LzHash.h" />
     <ClInclude Include="VMP_SDK\third-party\lzma\LzmaDecode.h" />
+    <ClInclude Include="VMP_SDK\third-party\lzma\LzmaEncode.h" />
+    <ClInclude Include="VMP_SDK\third-party\lzma\Precomp.h" />
+    <ClInclude Include="VMP_SDK\third-party\lzma\Threads.h" />
     <ClInclude Include="VMP_SDK\utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

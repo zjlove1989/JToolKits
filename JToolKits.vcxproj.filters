@@ -16,6 +16,9 @@
     <Filter Include="VMP_SDK">
       <UniqueIdentifier>{1f5bcd45-861d-488c-ba5e-cd03ad2c322a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="VMP_SDK\third-party">
+      <UniqueIdentifier>{9e292984-629c-4ab6-ac1c-57c265ed4c75}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JToolKits.cpp">
@@ -63,8 +66,23 @@
     <ClCompile Include="VMP_SDK\utils.cc">
       <Filter>VMP_SDK</Filter>
     </ClCompile>
+    <ClCompile Include="VMP_SDK\third-party\lzma\Alloc.c">
+      <Filter>VMP_SDK\third-party</Filter>
+    </ClCompile>
+    <ClCompile Include="VMP_SDK\third-party\lzma\LzFind.c">
+      <Filter>VMP_SDK\third-party</Filter>
+    </ClCompile>
+    <ClCompile Include="VMP_SDK\third-party\lzma\LzFindMt.c">
+      <Filter>VMP_SDK\third-party</Filter>
+    </ClCompile>
     <ClCompile Include="VMP_SDK\third-party\lzma\LzmaDecode.cc">
-      <Filter>VMP_SDK</Filter>
+      <Filter>VMP_SDK\third-party</Filter>
+    </ClCompile>
+    <ClCompile Include="VMP_SDK\third-party\lzma\LzmaEncode.cc">
+      <Filter>VMP_SDK\third-party</Filter>
+    </ClCompile>
+    <ClCompile Include="VMP_SDK\third-party\lzma\Threads.c">
+      <Filter>VMP_SDK\third-party</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,8 +134,35 @@
     <ClInclude Include="VMP_SDK\utils.h">
       <Filter>VMP_SDK</Filter>
     </ClInclude>
+    <ClInclude Include="VMP_SDK\third-party\lzma\7zTypes.h">
+      <Filter>VMP_SDK\third-party</Filter>
+    </ClInclude>
+    <ClInclude Include="VMP_SDK\third-party\lzma\Alloc.h">
+      <Filter>VMP_SDK\third-party</Filter>
+    </ClInclude>
+    <ClInclude Include="VMP_SDK\third-party\lzma\Compiler.h">
+      <Filter>VMP_SDK\third-party</Filter>
+    </ClInclude>
+    <ClInclude Include="VMP_SDK\third-party\lzma\LzFind.h">
+      <Filter>VMP_SDK\third-party</Filter>
+    </ClInclude>
+    <ClInclude Include="VMP_SDK\third-party\lzma\LzFindMt.h">
+      <Filter>VMP_SDK\third-party</Filter>
+    </ClInclude>
+    <ClInclude Include="VMP_SDK\third-party\lzma\LzHash.h">
+      <Filter>VMP_SDK\third-party</Filter>
+    </ClInclude>
     <ClInclude Include="VMP_SDK\third-party\lzma\LzmaDecode.h">
-      <Filter>VMP_SDK</Filter>
+      <Filter>VMP_SDK\third-party</Filter>
+    </ClInclude>
+    <ClInclude Include="VMP_SDK\third-party\lzma\LzmaEncode.h">
+      <Filter>VMP_SDK\third-party</Filter>
+    </ClInclude>
+    <ClInclude Include="VMP_SDK\third-party\lzma\Precomp.h">
+      <Filter>VMP_SDK\third-party</Filter>
+    </ClInclude>
+    <ClInclude Include="VMP_SDK\third-party\lzma\Threads.h">
+      <Filter>VMP_SDK\third-party</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
