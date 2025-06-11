@@ -125,12 +125,16 @@
   <ItemGroup>
     <ClCompile Include="core.cc" />
     <ClCompile Include="crypto.cc" />
+    <ClCompile Include="file_manager.cc" />
     <ClCompile Include="hook_manager.cc" />
     <ClCompile Include="hwid.cc" />
     <ClCompile Include="JToolKits.cpp" />
+    <ClCompile Include="licensing_manager.cc" />
     <ClCompile Include="loader.cc" />
     <ClCompile Include="objects.cc" />
     <ClCompile Include="precompiled.cc" />
+    <ClCompile Include="registry_manager.cc" />
+    <ClCompile Include="resource_manager.cc" />
     <ClCompile Include="sdk.cc" />
     <ClCompile Include="string_manager.cc" />
     <ClCompile Include="third-party\lzma\LzmaDecode.cc" />
@@ -140,12 +144,16 @@
     <ClInclude Include="common.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="crypto.h" />
+    <ClInclude Include="file_manager.h" />
     <ClInclude Include="hook_manager.h" />
     <ClInclude Include="hwid.h" />
+    <ClInclude Include="licensing_manager.h" />
     <ClInclude Include="loader.h" />
     <ClInclude Include="objects.h" />
     <ClInclude Include="precommon.h" />
     <ClInclude Include="precompiled.h" />
+    <ClInclude Include="registry_manager.h" />
+    <ClInclude Include="resource_manager.h" />
     <ClInclude Include="sdk.h" />
     <ClInclude Include="string_manager.h" />
     <ClInclude Include="third-party\lzma\LzmaDecode.h" />

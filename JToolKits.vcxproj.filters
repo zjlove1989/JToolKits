@@ -51,6 +51,18 @@
     <ClCompile Include="third-party\lzma\LzmaDecode.cc">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="file_manager.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="registry_manager.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="resource_manager.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="licensing_manager.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hook_manager.h">
@@ -90,6 +102,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="third-party\lzma\LzmaDecode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="file_manager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="registry_manager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource_manager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="licensing_manager.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

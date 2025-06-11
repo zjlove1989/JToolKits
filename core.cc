@@ -5,11 +5,19 @@
 #include "crypto.h"
 #include "core.h"
 #include "string_manager.h"
+#include "licensing_manager.h"
 #include "hwid.h"
-#include "loader.h"
-#include "hook_manager.h"
 
-using namespace vmp;
+#ifdef VMP_GNU
+#include "loader.h"
+#elif defined(WIN_DRIVER)
+#include "loader.h"
+#else
+#include "resource_manager.h"
+#include "file_manager.h"
+#include "registry_manager.h"
+#include "hook_manager.h"
+#endif
 
 GlobalData *loader_data = NULL;
 #ifdef WIN_DRIVER
@@ -1056,7 +1064,7 @@ uint32_t VirtualObjectList::GetPointerCount(const void *ref) const
 Core *Core::self_ = NULL;
 
 Core::Core()
-	: string_manager_(NULL), hardware_id_(NULL)
+	: string_manager_(NULL), licensing_manager_(NULL), hardware_id_(NULL)
 #ifdef VMP_GNU
 #elif defined(WIN_DRIVER)
 #else
@@ -1071,11 +1079,25 @@ Core::Core()
 Core::~Core()
 {
 	delete string_manager_;
+	delete licensing_manager_;
 	delete hardware_id_;
 
 #ifdef VMP_GNU
 #elif defined(WIN_DRIVER)
 #else
+	if (resource_manager_) {
+		resource_manager_->UnhookAPIs(*hook_manager_);
+		delete resource_manager_;
+	}
+	if (file_manager_) {
+		file_manager_->UnhookAPIs(*hook_manager_);
+		delete file_manager_;
+	}
+	if (registry_manager_) {
+		registry_manager_->UnhookAPIs(*hook_manager_);
+		delete registry_manager_;
+	}
+
 	if (nt_protect_virtual_memory_ || nt_close_ || dbg_ui_remote_breakin_)
 		UnhookAPIs(*hook_manager_);
 
@@ -1133,6 +1155,9 @@ bool Core::Init(HMODULE instance)
 	if (data.Strings)
 		string_manager_ = new StringManager(reinterpret_cast<uint8_t *>(instance) + data.Strings, instance, key);
 
+	if (data.LicenseData)
+		licensing_manager_ = new LicensingManager(reinterpret_cast<uint8_t *>(instance) + data.LicenseData, data.LicenseDataSize, key);
+
 	if (data.TrialHWID) {
 		uint8_t hwid_data[64];
 		{
@@ -1157,9 +1182,24 @@ bool Core::Init(HMODULE instance)
 	if (data.Resources || data.Storage || data.Registry || (data.Options & (CORE_OPTION_MEMORY_PROTECTION | CORE_OPTION_CHECK_DEBUGGER)))
 		hook_manager_ = new HookManager();
 
-
+	if (data.Resources) {
+		resource_manager_ = new ResourceManager(reinterpret_cast<uint8_t *>(instance) + data.Resources, instance, key);
+		resource_manager_->HookAPIs(*hook_manager_); //-V595
+	}
+	if (data.Storage) {
+		file_manager_ = new FileManager(reinterpret_cast<uint8_t *>(instance) + data.Storage, instance, key, &objects_);
+		file_manager_->HookAPIs(*hook_manager_);
+	}
+	if (data.Registry) {
+		registry_manager_ = new RegistryManager(reinterpret_cast<uint8_t *>(instance) + data.Registry, instance, key, &objects_);
+		registry_manager_->HookAPIs(*hook_manager_);
+	}
 	if (hook_manager_)
 		HookAPIs(*hook_manager_, data.Options);
+	if (file_manager_) {
+		if (!file_manager_->OpenFiles(*registry_manager_))
+			return false;
+	}
 #endif
 
 	return true;

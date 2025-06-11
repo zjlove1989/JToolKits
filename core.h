@@ -1,13 +1,12 @@
 #ifndef CORE_H
 #define CORE_H
-
-#include <windows.h>
-#include <winternl.h>
-#include "objects.h"
 #include "common.h"
 
 class StringManager;
+class LicensingManager;
 class HardwareID;
+
+using namespace vmp;
 
 #ifdef VMP_GNU
 #elif defined(WIN_DRIVER)
@@ -89,7 +88,7 @@ public:
 private:
 	void Delete(size_t index);
 	CRITICAL_SECTION critical_section_;
-	vmp::vector<VirtualObject *> v_;
+	vector<VirtualObject *> v_;
 };
 #endif
 
@@ -107,6 +106,7 @@ public:
 	bool Init(HMODULE instance);
 	~Core();
 	StringManager *string_manager() const { return string_manager_; }
+	LicensingManager *licensing_manager() const { return licensing_manager_; }
 	HardwareID *hardware_id();
 #ifdef VMP_GNU
 #elif defined(WIN_DRIVER)
@@ -123,6 +123,7 @@ protected:
 	Core();
 private:
 	StringManager *string_manager_;
+	LicensingManager *licensing_manager_;
 	HardwareID *hardware_id_;
 #ifdef VMP_GNU
 #elif defined(WIN_DRIVER)
@@ -147,26 +148,5 @@ private:
     Core(const Core &);
     Core &operator=(const Core &);
 };
-
-
-
-#define OBJ_HANDLE_TAGBITS 0x00000003L
-#define EXHANDLE(x) ((HANDLE)((ULONG_PTR)(x) & ~OBJ_HANDLE_TAGBITS))
-
-#define STATUS_SUCCESS ((NTSTATUS)0x00000000L)
-#define STATUS_BUFFER_TOO_SMALL ((NTSTATUS)0xC0000023L)
-#define STATUS_INVALID_IMAGE_FORMAT ((NTSTATUS)0xC000007BL)
-#define STATUS_INVALID_PAGE_PROTECTION ((NTSTATUS)0xC0000045L)
-#define STATUS_ACCESS_DENIED ((NTSTATUS)0xC0000022L)
-#define STATUS_NOT_IMPLEMENTED ((NTSTATUS)0xC0000002L)
-#define STATUS_INFO_LENGTH_MISMATCH ((NTSTATUS)0xC0000004L)
-#define STATUS_BUFFER_OVERFLOW ((NTSTATUS)0x80000005L)
-#define STATUS_OBJECT_NAME_NOT_FOUND ((NTSTATUS)0xC0000034L)
-#define STATUS_NO_MORE_ENTRIES ((NTSTATUS)0x8000001AL)
-#ifndef STATUS_INVALID_PARAMETER
-#define STATUS_INVALID_PARAMETER ((NTSTATUS)0xC000000DL)
-#endif
-#define STATUS_INVALID_DEVICE_REQUEST ((NTSTATUS)0xC0000010L)
-#define STATUS_INVALID_FILE_FOR_SECTION ((NTSTATUS)0xC0000020L)
 
 #endif
