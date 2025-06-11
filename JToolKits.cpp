@@ -12,7 +12,7 @@ void TestHwid()
     char buffer[256];
     HardwareID hardware_id;
     hardware_id.GetCurrent(buffer, 256);
-    MessageBoxA(NULL, buffer, "Tip", MB_OK);
+    MessageBoxA(NULL, buffer, "机器码", MB_OK);
 }
 
 void* old_messagebox = nullptr;
@@ -68,7 +68,7 @@ void TestDecodeLzma(Byte* compressedData, SizeT compressedSize, Byte* propsEncod
     // 假设这是之前压缩的数据和属性
 
     // 预估解压后的数据大小（如果知道原始大小，可以直接用）
-    SizeT uncompressedSize = compressedSize * 10 + 1; // 预估
+    SizeT uncompressedSize = compressedSize * 100 + 1; // 预估
     Byte* uncompressedData = (Byte*)malloc(uncompressedSize);
     if (!uncompressedData) {
         printf("Memory allocation failed for uncompressed buffer.\n");
@@ -136,7 +136,7 @@ void TestDecodeLzma(Byte* compressedData, SizeT compressedSize, Byte* propsEncod
 void TestEncodeLzma()
 {
     // 示例输入数据
-    const Byte src[] = "This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.";
+    const Byte src[] = "This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.-|||-This is a test string to be compressed using LZMA.";
     SizeT srcLen = sizeof(src) + 1; // 不包括末尾的 '\0'
 
     // 预估输出缓冲区大小（通常比输入稍大）
